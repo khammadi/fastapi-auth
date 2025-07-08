@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login with Google (FastAPI + JWT)</title>
+  <meta charset="UTF-8" />
+  <title>Login with Facebook & Google</title>
+  <link rel="stylesheet" href="/static/style.css" />
 </head>
-<body style="text-align: center; margin-top: 100px; font-family: sans-serif;">
-  <h1>Login with Google</h1>
-  <a href="/login"><button>Login with Google</button></a>
+<body>
+  <h1>Login with Facebook & Google</h1>
+
+  <a href="/login/facebook">
+    <button class="login-btn facebook">Login with Facebook</button>
+  </a>
+
+  <a href="/login/google">
+    <button class="login-btn google">Login with Google</button>
+  </a>
 </body>
 </html>
