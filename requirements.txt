@@ -25,7 +25,14 @@ uvloop==0.21.0
 watchfiles==1.1.0
 click==8.2.1
 
-# Optional
 python-dotenv==1.1.1
 PyYAML==6.0.2
 idna==3.10
+itsdangerous
+authlib
+httpx
+redis
+databases
+sqlalchemy
+asyncpg
+psycopg2-binary

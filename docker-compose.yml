@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  fastapi:
+    build: .
+    container_name: fastapiapp
+    ports:
+      - "8000:8000"
+    environment:
+      REDIS_HOST: redis
+      DATABASE_URL: postgresql://postgres:pass123@postgres:5432/fastapidb
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+
+  redis:
+    image: redis
+    container_name: myredis
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres
+    container_name: mypostgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass123
+      POSTGRES_DB: fastapidb
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
