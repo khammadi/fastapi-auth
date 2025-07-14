@@ -36,3 +36,4 @@ databases
 sqlalchemy
 asyncpg
 psycopg2-binary
+aio_pika
